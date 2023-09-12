@@ -1,11 +1,22 @@
 <%= tag.div id: dom_id(link) do %>
-  <%= link_to link.to_param, link %>
-  <%= link.url %>
-  <%= pluralize link.views_count, "view" %>
 
-  <%= link_to view_path(link), target: :_blank, data: {turbo: false} do %>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-    </svg>
-  <% end %>
+  <div class="grid grid-cols-8 items-center py-4">
+    <div class="col-span-5">
+      <%= link_to view_path(link), target: :_blank, data: {turbo: false}, class: "no-underline" do %>
+        <%= favicon_image_tag link.domain, class: "inline-block" %>
+        <%= link.url %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline-block w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+        </svg>
+      <% end %>
+    </div>
+
+    <div class="col-span-2 text-center text-xs">
+      <%= link_to pluralize(link.views_count, "view"), link, class: "px-2 py-1.5 rounded bg-gray-100 no-underline" %>
+    </div>
+
+    <div class="text-center text-xs">
+      <%= link_to "Copy", link, class: "px-2 py-1.5 rounded bg-gray-100 no-underline" %>
+    </div>
+  </div>
 <% end %>
