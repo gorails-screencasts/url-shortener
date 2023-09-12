@@ -3,7 +3,7 @@
   <div class="flex items-center gap-4">
     <%= tag.div pluralize(@link.views_count, "view") %>
     <%= button_tag "Copy", class: "font-medium px-2 py-1.5 rounded bg-gray-100 no-underline", data: {controller: "clipboard", clipboard_text: view_url(@link)} %>
-    <%= link_to "Edit", edit_link_path(@link), class: "px-2 py-1.5 rounded bg-gray-100 no-underline" %>
+    <%= link_to "Edit", edit_link_path(@link), class: "px-2 py-1.5 rounded bg-gray-100 no-underline" if @link.editable_by?(current_user) %>
   </div>
 </div>
 
