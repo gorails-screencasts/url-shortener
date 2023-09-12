@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link: one
+  user_agent: MyString
+  ip: MyString
+
+two:
+  link: two
+  user_agent: MyString
+  ip: MyString
