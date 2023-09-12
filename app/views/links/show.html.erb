@@ -2,6 +2,7 @@
   <%= link_to "← Back to all links", root_path, class: "no-underline text-xs px-3 py-2 rounded bg-gray-100" %>
   <div class="flex items-center gap-4">
     <%= tag.div pluralize(@link.views_count, "view") %>
+    <%= button_tag "Copy", class: "font-medium px-2 py-1.5 rounded bg-gray-100 no-underline", data: {controller: "clipboard", clipboard_text: view_url(@link)} %>
     <%= link_to "Edit", edit_link_path(@link), class: "px-2 py-1.5 rounded bg-gray-100 no-underline" %>
   </div>
 </div>
