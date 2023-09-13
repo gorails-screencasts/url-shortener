@@ -1,6 +1,6 @@
 require "test_helper"
 
-class UserTest < ActionDispatch::IntegrationTest
+class UsersTest < ActionDispatch::IntegrationTest
   test "guest user" do
     get links_path
     assert_select "a", "Sign Up"
