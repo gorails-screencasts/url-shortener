@@ -33,7 +33,6 @@ jobs:
           bin/rails test:prepare
           bin/rails db:test:prepare
           bin/rails test
-      - uses: hatchboxio/github-hatchbox-deploy-action@v1
+      - uses: hatchboxio/github-hatchbox-deploy-action@v2
         with:
           deploy_key: ${{ secrets.HATCHBOX_DEPLOY_KEY }}
-          branch: main
